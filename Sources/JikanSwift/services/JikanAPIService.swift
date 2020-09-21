@@ -1,7 +1,14 @@
+//
+//  JikanAPIService.swift
+//
+//
+//  Created by HG on 2020/09/20.
+//
+
 import Foundation
 
 public struct JikanAPIService {
-    let baseURL = URL(string: "https://api.jikan.moe/v3/")!
+    let baseURL = URL(string: "https://api.jikan.moe/v3")!
     public static let shared = JikanAPIService()
     let decoder = JSONDecoder()
     public enum APIError: Error {
@@ -12,7 +19,10 @@ public struct JikanAPIService {
     func urlBuilder(_ args: [String]) -> URL {
         var url = self.baseURL
         for arg in args {
-            url.appendPathComponent(arg)
+            // Workaround fix URL can't end with "/".
+            if (arg.count > 0 && arg != "/") {
+                url.appendPathComponent(arg)
+            }
         }
         return url
     }
@@ -25,7 +35,7 @@ public struct JikanAPIService {
                  params: params,
                  completionHandler: completionHandler)
     }
-    public func GET<T: Codable>(queryURL: URL,
+    func GET<T: Codable>(queryURL: URL,
                                 params: [String: String]?,
                                 completionHandler: @escaping (Result<T, APIError>) -> Void) {
         var components = URLComponents(url: queryURL, resolvingAgainstBaseURL: true)!
