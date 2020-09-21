@@ -26,18 +26,9 @@ public struct JikanAPIService {
         }
         return url
     }
-    public func loadAnime<T: Codable>(id: Int,
-                          request: String,
-                          params: [String: String]?,
-                          completionHandler: @escaping (Result<T, APIError>) -> Void) {
-        let url = urlBuilder(["anime", String(id), request])
-        self.GET(queryURL: url,
-                 params: params,
-                 completionHandler: completionHandler)
-    }
     func GET<T: Codable>(queryURL: URL,
-                                params: [String: String]?,
-                                completionHandler: @escaping (Result<T, APIError>) -> Void) {
+                         params: [String: String]?,
+                         completionHandler: @escaping (Result<T, APIError>) -> Void) {
         var components = URLComponents(url: queryURL, resolvingAgainstBaseURL: true)!
         if let params = params {
             for (_, value) in params.enumerated() {

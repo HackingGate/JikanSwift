@@ -11,14 +11,14 @@ public struct JikanAPIAnime: Codable, Identifiable {
     public let id: Int // mal_id
     public let url: String
     public let imageURL: String
-    public let trailerURL: String
+    public let trailerURL: String?
     public let title: String
-    public let titleEnglish: String
-    public let titleJapanese: String
-    public let titleSynonyms: [String]
-    public let episodes: Int
-    public let airing: Bool
-    public let synopsis: String
+    public let titleEnglish: String?
+    public let titleJapanese: String?
+    public let titleSynonyms: [String]?
+    public let episodes: Int?
+    public let airing: Bool?
+    public let synopsis: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "mal_id"
