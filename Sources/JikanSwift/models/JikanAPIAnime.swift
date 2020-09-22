@@ -34,3 +34,18 @@ public struct JikanAPIAnime: Codable, Identifiable {
         case synopsis = "synopsis"
     }
 }
+
+public enum JikanAPIAnimeRequest: String {
+    case all = "/"
+    case charactersStaff = "/characters_staff"
+    case episodes = "episodes"
+    case news = "news"
+    case pictures = "pictures"
+    case videos = "videos"
+    case stats = "stats"
+    case forum = "forum"
+    case moreinfo = "moreinfo"
+    case reviews = "reviews"
+    case recommendations = "recommendations"
+    case userupdates = "userupdates"
+}

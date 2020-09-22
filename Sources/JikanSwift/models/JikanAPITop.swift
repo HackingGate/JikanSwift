@@ -10,3 +10,30 @@ import Foundation
 public struct JikanAPITop<T: Codable>: Codable {
     public let top: T?
 }
+
+public enum JikanAPITopType: String {
+    case anime = "anime"
+    case manga = "manga"
+    case people = "people"
+    case characters = "characters"
+}
+
+public enum JikanAPITopSubtype: String {
+    // Anime
+    case airing = "airing"
+    case upcoming = "upcoming"
+    case tv = "tv"
+    case movie = "move"
+    case ova = "ova"
+    case special = "special"
+    // Manga
+    case manga = "manga"
+    case novels = "novels"
+    case oneshots = "oneshots"
+    case doujin = "doujin"
+    case manhwa = "manhwa"
+    case manhua = "manhua"
+    // Both
+    case bypopularity = "bypopularity"
+    case favorite = "favorite"
+}
