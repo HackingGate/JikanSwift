@@ -23,7 +23,7 @@ public enum JikanAPITopSubtype: String {
     case airing = "airing"
     case upcoming = "upcoming"
     case tv = "tv"
-    case movie = "move"
+    case movie = "movie"
     case ova = "ova"
     case special = "special"
     // Manga
