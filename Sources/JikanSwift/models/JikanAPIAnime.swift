@@ -19,7 +19,7 @@ public struct JikanAPIAnime: Codable, Identifiable {
     public let episodes: Int?
     public let airing: Bool?
     public let synopsis: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "mal_id"
         case url = "url"
