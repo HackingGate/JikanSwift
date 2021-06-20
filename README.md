@@ -1,4 +1,5 @@
 # JikanSwift
+[![SwiftLint](https://github.com/HackingGate/JikanSwift/actions/workflows/swiftlint.yml/badge.svg)](https://github.com/HackingGate/JikanSwift/actions/workflows/swiftlint.yml)
 
 Jikan Swift wrapper
 
