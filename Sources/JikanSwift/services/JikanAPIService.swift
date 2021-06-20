@@ -23,7 +23,7 @@ public struct JikanAPIService {
         var url = self.baseURL
         for arg in args {
             // Workaround fix URL can't end with "/".
-            if (arg.count > 0 && arg != "/") {
+            if arg.count > 0 && arg != "/" {
                 url.appendPathComponent(arg)
             }
         }
@@ -40,7 +40,7 @@ public struct JikanAPIService {
         }
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let task = URLSession.shared.dataTask(with: request) { (data, _, error) in
             if let error = error {
                 completionHandler(.failure(.networkError(error: error)))
                 return
