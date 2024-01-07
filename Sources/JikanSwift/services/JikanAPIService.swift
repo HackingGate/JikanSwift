@@ -11,7 +11,7 @@ import FoundationNetworking
 #endif
 
 public struct JikanAPIService {
-    let baseURL = URL(string: "https://api.jikan.moe/v3")!
+    let baseURL = URL(string: "https://api.jikan.moe/v4")!
     public static let shared = JikanAPIService()
     let decoder = JSONDecoder()
     public enum APIError: Error {

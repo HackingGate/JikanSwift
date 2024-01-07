@@ -6,7 +6,7 @@
 //
 
 extension JikanAPIService {
-    // https://jikan.docs.apiary.io/#reference/0/anime
+    // https://docs.api.jikan.moe/#tag/anime
     public func loadAnime<T: Codable>(id: Int,
                           request: JikanAPIAnimeRequest,
                           params: [String: String]?,
@@ -16,7 +16,7 @@ extension JikanAPIService {
             params: params,
             completionHandler: completionHandler)
     }
-    // https://jikan.docs.apiary.io/#reference/0/top
+    // https://docs.api.joe/#tag/top
     public func loadTop<T: Codable>(type: JikanAPITopType,
                                     page: Int,
                                     subtype: JikanAPITopSubtype,
