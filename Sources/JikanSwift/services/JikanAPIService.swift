@@ -11,7 +11,7 @@ import FoundationNetworking
 #endif
 
 public struct JikanAPIService {
-    let baseURL = URL(string: "https://api.jikan.moe/v3")!
+    let baseURL = URL(string: "https://api.jikan.moe/v4")!
     public static let shared = JikanAPIService()
     let decoder = JSONDecoder()
     public enum APIError: Error {
@@ -33,11 +33,8 @@ public struct JikanAPIService {
                          params: [String: String]?,
                          completionHandler: @escaping (Result<T, APIError>) -> Void) {
         var components = URLComponents(url: queryURL, resolvingAgainstBaseURL: true)!
-        if let params = params {
-            for (_, value) in params.enumerated() {
-                components.queryItems?.append(URLQueryItem(name: value.key, value: value.value))
-            }
-        }
+        components.queryItems = params?.map { URLQueryItem(name: $0.key, value: $0.value) }
+        
         var request = URLRequest(url: components.url!)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request) { (data, _, error) in

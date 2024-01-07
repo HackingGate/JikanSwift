@@ -10,8 +10,7 @@ import Foundation
 public struct JikanAPIAnime: Codable, Identifiable {
     public let id: Int // mal_id
     public let url: String
-    public let imageURL: String
-    public let trailerURL: String?
+    public let images: JikanAPIImages
     public let title: String
     public let titleEnglish: String?
     public let titleJapanese: String?
@@ -23,8 +22,7 @@ public struct JikanAPIAnime: Codable, Identifiable {
     enum CodingKeys: String, CodingKey {
         case id = "mal_id"
         case url = "url"
-        case imageURL = "image_url"
-        case trailerURL = "trailer_url"
+        case images = "images"
         case title = "title"
         case titleEnglish = "title_english"
         case titleJapanese = "title_japanese"
@@ -35,17 +33,19 @@ public struct JikanAPIAnime: Codable, Identifiable {
     }
 }
 
+public struct JikanAPIImages: Codable {
+    public let jpg: JikanAPIImage
+    public let webp: JikanAPIImage
+}
+
+public struct JikanAPIImage: Codable {
+    public let imageURL: String
+    
+    enum CodingKeys: String, CodingKey {
+        case imageURL = "image_url"
+    }
+}
+
 public enum JikanAPIAnimeRequest: String {
     case all = "/"
-    case charactersStaff = "/characters_staff"
-    case episodes = "episodes"
-    case news = "news"
-    case pictures = "pictures"
-    case videos = "videos"
-    case stats = "stats"
-    case forum = "forum"
-    case moreinfo = "moreinfo"
-    case reviews = "reviews"
-    case recommendations = "recommendations"
-    case userupdates = "userupdates"
 }
