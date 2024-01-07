@@ -7,7 +7,7 @@
 
 extension JikanAPIService {
     // https://docs.api.jikan.moe/#tag/anime
-    public func loadAnime<T: Codable>(id: Int,
+    public func getAnimeFull<T: Codable>(id: Int,
                           request: JikanAPIAnimeRequest,
                           params: [String: String]?,
                           completionHandler: @escaping (Result<T, APIError>) -> Void) {
